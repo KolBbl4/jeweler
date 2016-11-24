@@ -11,6 +11,8 @@ type
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
     Button1: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }

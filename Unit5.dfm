@@ -15,7 +15,7 @@ object Form5: TForm5
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 35
+    Left = 43
     Top = 10
     Width = 63
     Height = 16
@@ -29,7 +29,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 39
+    Left = 55
     Top = 53
     Width = 38
     Height = 18
@@ -43,7 +43,7 @@ object Form5: TForm5
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 30
+    Left = 40
     Top = 95
     Width = 68
     Height = 16
@@ -55,8 +55,21 @@ object Form5: TForm5
     Font.Style = []
     ParentFont = False
   end
+  object Label4: TLabel
+    Left = 42
+    Top = 137
+    Width = 64
+    Height = 16
+    Caption = #8470' '#1103#1097#1077#1095#1082#1072
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object DBEdit1: TDBEdit
-    Left = 4
+    Left = 14
     Top = 31
     Width = 121
     Height = 21
@@ -65,30 +78,39 @@ object Form5: TForm5
     TabOrder = 0
   end
   object DBEdit2: TDBEdit
-    Left = 3
-    Top = 73
-    Width = 121
+    Left = 50
+    Top = 71
+    Width = 50
     Height = 21
     DataField = #1062#1077#1085#1072
     DataSource = Form1.DataSource1
     TabOrder = 1
   end
   object DBEdit3: TDBEdit
-    Left = 2
+    Left = 50
     Top = 115
-    Width = 121
+    Width = 50
     Height = 21
     DataField = #1050#1086#1083#1080#1095#1077#1089#1090#1074#1086
     DataSource = Form1.DataSource1
     TabOrder = 2
   end
   object Button1: TButton
-    Left = 1
-    Top = 151
+    Left = 37
+    Top = 194
     Width = 75
     Height = 25
     Caption = 'OK'
     TabOrder = 3
     OnClick = Button1Click
+  end
+  object DBEdit4: TDBEdit
+    Left = 50
+    Top = 157
+    Width = 50
+    Height = 21
+    DataField = #1071#1097#1080#1095#1077#1082
+    DataSource = Form1.DataSource1
+    TabOrder = 4
   end
 end

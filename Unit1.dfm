@@ -96,7 +96,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object DBGrid1: TDBGrid
-    Left = 9
+    Left = 10
     Top = 61
     Width = 569
     Height = 305
@@ -135,22 +135,13 @@ object Form1: TForm1
     TabOrder = 3
     OnClick = Button3Click
   end
-  object Button4: TButton
-    Left = 8
-    Top = 369
-    Width = 75
-    Height = 25
-    Caption = #1044#1086#1073#1072#1074#1080#1090#1100
-    TabOrder = 4
-    OnClick = Button4Click
-  end
   object Button6: TButton
     Left = 169
     Top = 372
     Width = 75
     Height = 25
     Caption = #1059#1076#1072#1083#1080#1090#1100
-    TabOrder = 5
+    TabOrder = 4
     OnClick = Button6Click
   end
   object Button7: TButton
@@ -159,7 +150,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1055#1088#1086#1095#1077#1077
-    TabOrder = 6
+    TabOrder = 5
     OnClick = Button7Click
   end
   object Button5: TButton
@@ -168,7 +159,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1042#1099#1073#1088#1072#1090#1100
-    TabOrder = 7
+    TabOrder = 6
     OnClick = Button5Click
   end
   object Edit1: TEdit
@@ -177,7 +168,7 @@ object Form1: TForm1
     Width = 65
     Height = 21
     ReadOnly = True
-    TabOrder = 8
+    TabOrder = 7
     Text = '0'
   end
   object Edit2: TEdit
@@ -185,7 +176,7 @@ object Form1: TForm1
     Top = 94
     Width = 65
     Height = 21
-    TabOrder = 9
+    TabOrder = 8
     Text = '0'
   end
   object Edit3: TEdit
@@ -194,7 +185,7 @@ object Form1: TForm1
     Width = 65
     Height = 21
     ReadOnly = True
-    TabOrder = 10
+    TabOrder = 9
     Text = '0'
   end
   object Button8: TButton
@@ -203,7 +194,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1056#1072#1089#1095#1080#1090#1072#1090#1100
-    TabOrder = 11
+    TabOrder = 10
     OnClick = Button8Click
   end
   object Edit4: TEdit
@@ -211,7 +202,7 @@ object Form1: TForm1
     Top = 231
     Width = 120
     Height = 21
-    TabOrder = 12
+    TabOrder = 11
   end
   object Button9: TButton
     Left = 589
@@ -220,7 +211,7 @@ object Form1: TForm1
     Height = 25
     Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
     Enabled = False
-    TabOrder = 13
+    TabOrder = 12
     OnClick = Button9Click
   end
   object Button10: TButton
@@ -229,7 +220,7 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1058#1086#1074#1072#1088#1099
-    TabOrder = 14
+    TabOrder = 13
     OnClick = Button10Click
   end
   object Button11: TButton
@@ -238,41 +229,60 @@ object Form1: TForm1
     Width = 75
     Height = 25
     Caption = #1048#1079#1084#1077#1085#1080#1090#1100
-    TabOrder = 15
+    TabOrder = 14
     OnClick = Button11Click
+  end
+  object Button12: TButton
+    Left = 9
+    Top = 371
+    Width = 75
+    Height = 25
+    Caption = #1044#1086#1073#1072#1074#1090#1100
+    TabOrder = 15
+    OnClick = Button12Click
   end
   object DataSource1: TDataSource
     DataSet = ADOQuery1
-    Left = 707
-    Top = 299
+    Left = 760
+    Top = 174
   end
   object ADOConnection1: TADOConnection
     Connected = True
     ConnectionString = 
-      'Provider=Microsoft.ACE.OLEDB.12.0;Password="";Data Source=juvely' +
-      '.accdb;Persist Security Info=True'
+      'Provider=Microsoft.ACE.OLEDB.12.0;User ID=Admin;Data Source=juve' +
+      'ly.accdb;Mode=Share Deny None;Extended Properties="";Persist Sec' +
+      'urity Info=False;Jet OLEDB:System database="";Jet OLEDB:Registry' +
+      ' Path="";Jet OLEDB:Database Password="";Jet OLEDB:Engine Type=6;' +
+      'Jet OLEDB:Database Locking Mode=1;Jet OLEDB:Global Partial Bulk ' +
+      'Ops=2;Jet OLEDB:Global Bulk Transactions=1;Jet OLEDB:New Databas' +
+      'e Password="";Jet OLEDB:Create System Database=False;Jet OLEDB:E' +
+      'ncrypt Database=False;Jet OLEDB:Don'#39't Copy Locale on Compact=Fal' +
+      'se;Jet OLEDB:Compact Without Replica Repair=False;Jet OLEDB:SFP=' +
+      'False;Jet OLEDB:Support Complex Data=False'
     LoginPrompt = False
     Mode = cmShareDenyNone
     Provider = 'Microsoft.ACE.OLEDB.12.0'
-    Left = 603
-    Top = 301
+    Left = 778
+    Top = 64
   end
   object ADOQuery1: TADOQuery
     Connection = ADOConnection1
     Parameters = <>
-    Left = 778
-    Top = 156
+    SQL.Strings = (
+      'SELECT *  FROM '#1052#1072#1090#1077#1088#1080#1072#1083#1099)
+    Left = 789
+    Top = 124
   end
   object ADOQuery2: TADOQuery
     Connection = ADOConnection1
     Parameters = <>
-    Left = 777
-    Top = 346
+    Left = 804
+    Top = 233
   end
   object DataSource2: TDataSource
     DataSet = ADOQuery3
-    Left = 648
-    Top = 367
+    Left = 795
+    Top = 291
   end
   object ADOQuery3: TADOQuery
     Active = True
@@ -280,8 +290,13 @@ object Form1: TForm1
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'SELECT '#1050#1086#1076', '#1053#1072#1079#1074#1072#1085#1080#1077', '#1062#1077#1085#1072', '#1050#1086#1083#1080#1095#1077#1089#1090#1074#1086' FROM '#1050#1072#1084#1085#1080)
-    Left = 726
-    Top = 351
+      'SELECT *  FROM '#1052#1072#1090#1077#1088#1080#1072#1083#1099)
+    Left = 617
+    Top = 333
+  end
+  object DataSource3: TDataSource
+    DataSet = ADOQuery3
+    Left = 690
+    Top = 348
   end
 end

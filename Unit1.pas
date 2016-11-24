@@ -13,7 +13,6 @@ type
     Button2: TButton;
     Button3: TButton;
     Label1: TLabel;
-    Button4: TButton;
     Button6: TButton;
     DataSource1: TDataSource;
     ADOConnection1: TADOConnection;
@@ -36,17 +35,19 @@ type
     Button11: TButton;
     DataSource2: TDataSource;
     ADOQuery3: TADOQuery;
+    Button12: TButton;
+    DataSource3: TDataSource;
     procedure Button1Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
     procedure Button8Click(Sender: TObject);
     procedure Button9Click(Sender: TObject);
     procedure Button10Click(Sender: TObject);
     procedure Button11Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -67,14 +68,15 @@ uses Unit2, Unit3, Unit5;
 
 procedure TForm1.qeryTable(ParamName: string);
 begin
-  Form1.ADOQuery1.SQL.Text:='SELECT Код, Название, Цена, Количество FROM Камни WHERE Тип = "'+ParamName+'" ORDER BY Название ASC';
+  Form1.ADOQuery1.SQL.Text:='SELECT Код, Название, Цена, Количество, Ящичек FROM Материалы WHERE Тип = "'+ParamName+'" ORDER BY Название ASC';
   Form1.ADOConnection1.Connected :=True;
   Form1.DataSource1.DataSet := Form1.ADOQuery1;
   Form1.ADOQuery1.Active := True;
-  Form1.DBGrid1.Columns[0].Width:=0;
-  Form1.DBGrid1.Columns[1].Width:=350;
-  Form1.DBGrid1.Columns[2].Width:=50;
-  Form1.DBGrid1.Columns[3].Width:=80;
+  Form1.DBGrid1.Columns[0].Width:=0; //Код
+  Form1.DBGrid1.Columns[1].Width:=300;  //Название
+  Form1.DBGrid1.Columns[2].Width:=40;   //Цена
+  Form1.DBGrid1.Columns[3].Width:=80; //Количество
+  Form1.DBGrid1.Columns[3].Width:=80;  //Ящичек
 end;
 
 
@@ -98,21 +100,17 @@ begin
   qeryTable(Button3.Caption);
 end;
 
-procedure TForm1.Button4Click(Sender: TObject);
-begin
-  ADOConnection1.Connected :=False;
-  Form2.Show;
-end;
-
 procedure TForm1.Button6Click(Sender: TObject);
 var
  resultModa:Integer;
 begin
-   resultModa:= MessageDlg('Действительно удалить '+DBGrid1.DataSource.DataSet.Fields[1].Value,mtInformation, mbOKCancel, 0);
-  if resultModa =1 then
-  begin
+  resultModa:= MessageDlg('Действительно удалить?',mtInformation, mbOKCancel, 0);
+   if resultModa = 1 then
+   begin
      ADOQuery1.Delete;
-  end;
+   end;
+
+
 end;
 
 
@@ -137,15 +135,18 @@ begin
               id:=  Form1.DBGrid1.DataSource.DataSet.Fields[0].Value; // ид записаи
               count :=DBGrid1.DataSource.DataSet.Fields[3].Value - 1; // кол-во товара
               Form1.ADOQuery2.SQL.Clear;
-              Form1.ADOQuery2.SQL.Add('UPDATE Камни SET Количество ='+count+' WHERE Код = '+id+'');
+              Form1.ADOQuery2.SQL.Add('UPDATE Материалы SET Количество ='+count+' WHERE Код = '+id+'');
               Form1.ADOQuery1.Active := false;
 
               Form1.ADOQuery2.ExecSQL;
+
               Form1.ADOQuery1.Active := True;
-              Form1.DBGrid1.Columns[0].Width:=0;
-              Form1.DBGrid1.Columns[1].Width:=350;
-              Form1.DBGrid1.Columns[2].Width:=50;
-              Form1.DBGrid1.Columns[3].Width:=80;
+              Form1.DBGrid1.Columns[0].Width:=0; //Код
+              Form1.DBGrid1.Columns[1].Width:=300;  //Название
+              Form1.DBGrid1.Columns[2].Width:=40;   //Цена
+              Form1.DBGrid1.Columns[3].Width:=80; //Количество
+              Form1.DBGrid1.Columns[3].Width:=80;  //Ящичек
+
               Edit1.Text:=FloatToStr(Price);
            end else
            begin
@@ -211,6 +212,12 @@ end;
 procedure TForm1.Button11Click(Sender: TObject);
 begin
   Form5.Show;
+end;
+
+procedure TForm1.Button12Click(Sender: TObject);
+begin
+Form2.show;
+ADOQuery3.Insert;
 end;
 
 end.
